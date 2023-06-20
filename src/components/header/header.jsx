@@ -31,6 +31,7 @@ const Header = () => {
 					alt={"logo"}
 					width={56}
 					height={56}
+					priority={true}
 				/>
 				<ul className='space-x-4 hidden md:flex'>
 					<li className='navLink'>Home</li>
