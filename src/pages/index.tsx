@@ -1,10 +1,11 @@
+import { IMovie } from '@/interfaces/app.interface';
 import { API_REUEST } from '@/services/api.service';
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import { Header } from "src/components"
+import { Header, Hero } from "src/components"
 
-export default function Home(props: HomeProps): JSX.Element {
-  console.log(props);
+export default function Home({ trending }: HomeProps): JSX.Element {
+  console.log(trending[0].id);
 
   return (
     <div className='relative h-screen'>
@@ -15,8 +16,8 @@ export default function Home(props: HomeProps): JSX.Element {
         <link rel="icon" href="/logo-movie.svg" />
       </Head>
       <Header />
-      <main>
-        {/* <Hero/> */}
+      <main className='relative pl-4 pb-24 lg:pl-16 lg:space-y-24'>
+        <Hero trending={trending} />
         <section>
           {/* <Row/> */}
         </section>
@@ -29,11 +30,11 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const trending = await fetch(API_REUEST.trending).then(res => res.json())
   return {
     props: {
-      trending
+      trending: trending.results
     }
   }
 }
 
 interface HomeProps {
-  trending: any
+  trending: IMovie[]
 }

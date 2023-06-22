@@ -19,10 +19,11 @@ const Header = () => {
 		return () => window.removeEventListener("scroll", handleScrolled);
 	}, []);
 
+
 	return (
 		<header
 			className={`flex justify-between items-center p-2 fixed top-0 z-50 w-full lg:px-4  transition-all ${
-				scrolled && "bg-red-500"
+				(scrolled && "bg-red-500") || "bg-custom"
 			}`}>
 			<div className='flex items-center space-x-2 md:space-x-10'>
 				<Image

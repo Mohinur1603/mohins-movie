@@ -5,7 +5,7 @@
 /* html, body  */
 @layer base {
   body {
-    @apply bg-[#141414] text-[#fff] 
+    @apply bg-[#141414] text-[#fff]
   }
 
 }
@@ -16,6 +16,11 @@
     @apply cursor-pointer text-xs text-[#fff] hover:text-[#b3b3b3]
   }
 }
-.relative{
+
+.relative {
   height: 1000px;
+}
+
+.bg-custom {
+  background-color: rgba(0, 0, 0, 0.4);
 }
